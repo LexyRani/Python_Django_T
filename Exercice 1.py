@@ -7,8 +7,6 @@ def add_space(bloc):
             print(f"|{' ' * (largerMax - lenStr - 2)}{tup[0][:lenStr].lower()}|")
 
 def main():
-
-
     bloc1 = {1: ("Le code propre facilite la maintenance", True)}
     bloc2 = {1: ("Tester souvent évite beaucoup d erreurs", True),
              2: ("Cette phrase ne doit pas s afficher", False)}
