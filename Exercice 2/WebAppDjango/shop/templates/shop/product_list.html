@@ -9,7 +9,7 @@
             <a href = "{% url 'product-create' %}"> Create product</a>
             <ul>
                 {% for product in products %}
-                    <li>{{product.name}} - {{product.price}} - {{product.expiration_date}}  
+                    <li><a href="{% url 'product-detail' product.pk %}"> {{product.name}} </a>  - {{product.price}} - {{product.expiration_date}}
                         <a href="{% url 'product-update' product.pk %}"> Edit </a>
                         <a href="{% url 'product-delete' product.pk %}">Delete</a>
                     </li>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Détail du produit</h1>
+            <div> {{product.name}} - {{product.price}} - {{product.expiration_date}}                        
+                <div><a href="{% url 'product-update' product.pk %}"> Mettre à jour </a> -
+                <a href="{% url 'product-delete' product.pk %}">Supprimer</a></div>
+            </div>
+    </body>    
+</html>
