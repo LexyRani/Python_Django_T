@@ -8,7 +8,6 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.views.generic import DetailView
 
-
 class ProductListView(ListView):
     model = Product
     template_name = 'shop/product_list.html'
