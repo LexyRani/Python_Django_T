@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from.form import ProductForm
 from django.views.generic.edit import UpdateView
+from django.views.generic.edit import DeleteView
 
 class ProductListView(ListView):
     model = Product
@@ -21,6 +22,11 @@ class ProductCreateView(CreateView):
 class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
+    success_url = reverse_lazy('product-list')
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'shop/product_delete.html'
     success_url = reverse_lazy('product-list')
 
 

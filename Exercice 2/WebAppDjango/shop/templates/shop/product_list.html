@@ -11,6 +11,7 @@
                 {% for product in products %}
                     <li>{{product.name}} - {{product.price}} - {{product.expiration_date}}  
                         <a href="{% url 'product-update' product.pk %}"> Edit </a>
+                        <a href="{% url 'product-delete' product.pk %}">Delete</a>
                     </li>
                    
                 {% empty %}

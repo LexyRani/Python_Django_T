@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Supprimer le produit</h1>
+        <form method="post">
+            {% csrf_token %}
+            <p>Etes vous sûr de vouloir supprimer le produit: {{ product.name }}"?</p>
+            <button type="submit">Confirm</button>
+        </form>
+    </body>    
+</html>
