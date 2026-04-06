@@ -54,7 +54,7 @@ body {
     display: block;
     width: 22px;
     height: 2px;
-    background-color: #721d3c;
+    background-color: #334155;
     margin: 5px auto;
     border-radius: 2px;
     transition: transform 0.25s ease, opacity 0.25s ease;
@@ -87,7 +87,7 @@ body {
 }
 
 .sidebar-links a.active {
-    background-color: #dbeafe;
+    background-color: #e8f0ff;
     color: #1d4ed8;
     font-weight: 600;
 }
@@ -220,7 +220,7 @@ p {
         top: 0;
         left: 0;
         width: 100%;
-        padding: 14px 16px;
+        padding: 16px 20px;
         box-sizing: border-box;
         background-color: #f9fbfd;
         border-bottom: 1px solid #e2e8f0;
@@ -246,7 +246,7 @@ p {
         width: 100vw;
         height: 100vh;
         background-color: #f9fbfd;
-        padding: 84px 20px 20px 20px;
+        padding: 96px 24px 24px 24px;
         box-sizing: border-box;
         border: none;
         transform: translateX(100%);
@@ -259,12 +259,15 @@ p {
     }
 
     .sidebar-links {
-        gap: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
     }
 
     .sidebar-links a {
         font-size: 1.1rem;
-        padding: 14px 12px;
+        padding: 14px 14px;
+        border-radius: 12px;
     }
 
     .main-content {
