@@ -8,23 +8,44 @@
         <link rel="stylesheet" href="{% static 'shop/style.css' %}">
     </head>
     <body>
+        <div class="mobile-topbar">
+            <a href="{% url 'product-list' %}" class="logo">Shop</a>
+
+            <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Ouvrir le menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
         <div class="layout">
             <nav class="sidebar">
-                <a href="{% url 'product-list' %}" class="logo">Shop</a>
+                <a href="{% url 'product-list' %}" class="logo desktop-logo">Shop</a>
 
                 <div class="sidebar-links">
                     {% url 'product-list' as product_list_url %}
                     {% url 'product-create' as product_create_url %}
+
                     <a href="{{ product_list_url }}" class="{% if request.path == product_list_url %}active{% endif %}">
-                        Produits</a>
+                        Produits
+                    </a>
+
                     <a href="{{ product_create_url }}" class="{% if request.path == product_create_url %}active{% endif %}">
-                        Créer un produit </a>
+                        Créer un produit
+                    </a>
                 </div>
             </nav>
+
             <main class="main-content">
                 {% block content %}
                 {% endblock %}
             </main>
         </div>
+
+        <script>
+            function toggleMenu() {
+                document.body.classList.toggle("sidebar-open");
+            }
+        </script>
     </body>
 </html>
