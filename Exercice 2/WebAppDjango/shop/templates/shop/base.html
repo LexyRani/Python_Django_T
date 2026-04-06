@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Shop</title>
+        <link rel="stylesheet" href="{% static 'shop/style.css' %}">
+    </head>
+    <body>
+        <div class="layout">
+            <nav class="sidebar">
+                <a href="{% url 'product-list' %}" class="logo">Shop</a>
+
+                <div class="sidebar-links">
+                    {% url 'product-list' as product_list_url %}
+                    {% url 'product-create' as product_create_url %}
+                    <a href="{{ product_list_url }}" class="{% if request.path == product_list_url %}active{% endif %}">
+                        Produits</a>
+                    <a href="{{ product_create_url }}" class="{% if request.path == product_create_url %}active{% endif %}">
+                        Créer un produit </a>
+                </div>
+            </nav>
+            <main class="main-content">
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+    </body>
+</html>
