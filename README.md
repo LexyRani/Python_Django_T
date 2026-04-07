@@ -119,19 +119,13 @@ cd Exercice\ 2/WebAppDjango
 python manage.py migrate
 ```
 
-5. Lancer le serveur de développement :
+5. Depuis le dossier du projet Django (là où se trouve `manage.py`) :
 
-```bash
-python manage.py runserver
-```
-
-Depuis le dossier du projet Django (là où se trouve `manage.py`) :
-
-  1. Lancer le serveur :
+  Lancer le serveur :
 
   ```bash
   python manage.py runserver
   ```
 
-  2. Depuis un navigateur web, accéder à l’application :
+  Depuis un navigateur web, accéder à l’application :
      - `http://127.0.0.1:8000/`
