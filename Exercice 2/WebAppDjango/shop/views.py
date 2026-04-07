@@ -47,24 +47,29 @@ class InvoiceListView(ListView):
     ordering = ['-id']
 
 
+from django.shortcuts import render, redirect
+from .forms import InvoiceForm, InvoiceItemFormSet
+
+
 def invoice_create(request):
     if request.method == 'POST':
         form = InvoiceForm(request.POST)
-        if form.is_valid():
+        invoice = Invoice()
+        formset = InvoiceItemFormSet(request.POST, instance=invoice)
+
+        if form.is_valid() and formset.is_valid():
             invoice = form.save()
-            formset = InvoiceItemFormSet(request.POST, instance=invoice)
+            formset.instance = invoice
 
-            if formset.is_valid():
-                items = formset.save(commit=False)
+            items = formset.save(commit=False)
 
-                for item in items:
-                    if item.product and item.quantity and item.unit_price:
-                        item.invoice = invoice
-                        item.save()
+            for item in items:
+                if item.product and item.quantity and item.unit_price:
+                    item.invoice = invoice
+                    item.save()
 
-                return redirect('invoice-detail', pk=invoice.pk)
-            else:
-                invoice.delete()
+            return redirect('invoice-detail', pk=invoice.pk)
+
     else:
         form = InvoiceForm()
         formset = InvoiceItemFormSet()
