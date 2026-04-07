@@ -1,44 +1,51 @@
 {% extends "shop/base.html" %}
 
 {% block content %}
-  <div class="invoice-detail-header">
-    <h1>Facture #{{ invoice.id }}</h1>
-    <p>Date : {{ invoice.created_at }}</p>
-  </div>
-
-  <table class="invoice-table">
-      <thead>
-          <tr>
-              <th>Produit</th>
-              <th>Quantité</th>
-              <th>Prix unitaire</th>
-              <th>Total ligne</th>
-          </tr>
-      </thead>
-      <tbody>
-          {% for item in invoice.invoiceitem_set.all %}
-              <tr>
-                  <td>{{ item.product.name }}</td>
-                  <td>{{ item.quantity }}</td>
-                  <td class="text-right">{{ item.unit_price }}</td>
-                  <td class="text-right">{{ item.line_total }}</td>
-              </tr>
-          {% empty %}
-              <tr>
-                  <td colspan="4">Aucun produit dans cette facture.</td>
-              </tr>
-          {% endfor %}
-      </tbody>
-  </table>
-
-<div class="invoice-summary">
-    <div class="summary-row">
-        <span>Total de produits</span>
-        <span>{{ invoice.total_products }}</span>
+<div class="content-container">
+    <div class="page-header">
+        <div>
+            <h1>Facture #{{ invoice.id }}</h1>
+            <p class="page-subtitle">Date : {{ invoice.created_at|date:"d/m/Y" }}</p>
+        </div>
+        <a href="{% url 'invoice-list' %}" class="btn btn-secondary">Retour à la liste</a>
     </div>
-    <div class="summary-row summary-total">
-        <span>Total à payer</span>
-        <span>{{ invoice.total_price }}</span>
+
+    <div class="card">
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total ligne</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in invoice.invoiceitem_set.all %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td class="text-right">{{ item.unit_price }}</td>
+                        <td class="text-right">{{ item.line_total }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4" class="empty-row">Aucun produit dans cette facture.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="invoice-summary card">
+        <div class="summary-row">
+            <span>Total de produits</span>
+            <span>{{ invoice.total_products }}</span>
+        </div>
+        <div class="summary-row summary-total">
+            <span>Total à payer</span>
+            <span>{{ invoice.total_price }}</span>
+        </div>
     </div>
 </div>
 {% endblock %}

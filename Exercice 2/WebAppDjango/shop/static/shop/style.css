@@ -571,3 +571,68 @@ p {
 .invoice-table-contained tr:last-child td {
     border-bottom: none;
 }
+
+.card p {
+    margin-bottom: 12px;
+}
+.form-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.page-subtitle {
+    margin-top: 6px;
+    color: #64748b;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.invoice-table th,
+.invoice-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.invoice-table th {
+    font-weight: 600;
+    color: #475569;
+    background-color: #f8fafc;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.empty-row {
+    text-align: center;
+    color: #64748b;
+    padding: 24px;
+}
+
+.invoice-summary {
+    max-width: 420px;
+    margin-left: auto;
+    margin-top: 24px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.summary-row + .summary-row {
+    border-top: 1px solid #e2e8f0;
+}
+
+.summary-total {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
