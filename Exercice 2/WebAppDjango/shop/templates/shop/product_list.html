@@ -4,7 +4,7 @@
         <div class="page-header">
             <h1>Liste des produits</h1>
             <a href="{% url 'product-create' %}" class="btn">Ajouter un produit</a>
-        </div>
+        <div class="table-wrapper">
         <table class="product-table">
             <thead>
                 <tr>
@@ -36,16 +36,21 @@
                 {% endfor %}
             </tbody>
         </table>
+    <nav class="pagination-wrapper" aria-label="Pagination des produits">
         <div class="pagination">
             {% if page_obj.has_previous %}
                 <a href="?page=1">&laquo; Premier</a>
                 <a href="?page={{ page_obj.previous_page_number }}">Précédent</a>
             {% endif %}
-            <span>Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}</span>
+
+            <span class="pagination-current">
+                Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}
+            </span>
+
             {% if page_obj.has_next %}
                 <a href="?page={{ page_obj.next_page_number }}">Suivant</a>
                 <a href="?page={{ page_obj.paginator.num_pages }}">Dernier &raquo;</a>
             {% endif %}
         </div>
-    </div>
+    </nav>
 {% endblock %}
