@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Product, Invoice
-from .forms import InvoiceForm, InvoiceItemFormSet
+from .forms import InvoiceItemFormSet
 from .forms import ProductForm, InvoiceForm
 
 
@@ -45,8 +45,6 @@ class InvoiceListView(ListView):
     context_object_name = 'invoices'
     paginate_by = 10
     ordering = ['-id']
-
-
 
 
 def invoice_create(request):
