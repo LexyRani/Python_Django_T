@@ -336,6 +336,7 @@ p {
     border-color: #bfdbfe;
 }
 /* Détail facture */
+
 .invoice-detail-header {
     margin-bottom: 24px;
 }
@@ -467,5 +468,69 @@ p {
 
     body.sidebar-open .menu-toggle span:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
+.form-row-single {
+    max-width: 260px;
+}
+
+.invoice-form {
+    max-width: 880px;
+}
+
+.invoice-items-section {
+    margin-top: 24px;
+}
+
+.invoice-item-card h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.invoice-item-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 16px;
+    align-items: end;
+}
+
+.form-field {
+    margin-bottom: 0;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-field input,
+.form-field select {
+    margin-bottom: 0;
+}
+
+.field-error {
+    margin-top: 6px;
+    color: #dc2626;
+    font-size: 0.9rem;
+}
+
+.form-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .invoice-item-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row-single {
+        max-width: 100%;
     }
 }

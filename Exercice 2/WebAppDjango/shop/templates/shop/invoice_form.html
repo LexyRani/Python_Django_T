@@ -1,19 +1,93 @@
 {% extends "shop/base.html" %}
+
 {% block content %}
-    <h1>Créer une facture</h1>
+    <div class="content-container">
+        <div class="page-header">
+            <h1>Créer une facture</h1>
+        </div>
 
-    <form method="post">
-        {% csrf_token %}
+        <form method="post" class="invoice-form">
+            {% csrf_token %}
 
-        {{ form.as_p }}
-
-        {{ formset.management_form }}
-
-        {% for item_form in formset %}
             <div class="card">
-                {{ item_form.as_p }}
+                <h2>Informations générales</h2>
+                <div class="form-row-single">
+                    <label for="{{ form.created_at.id_for_label }}">Date</label>
+                    {{ form.created_at }}
+                </div>
+                {% if form.created_at.errors %}
+                    <div class="field-error">{{ form.created_at.errors }}</div>
+                {% endif %}
             </div>
-            {% endfor %}
-            <button type="submit">Enregistrer la facture</button>
-    </form>        
+
+            {{ formset.management_form }}
+
+            <div class="invoice-items-section">
+                <h2>Lignes de facture</h2>
+
+                {% for item_form in formset %}
+                    <div class="card invoice-item-card">
+                        <h3>Produit {{ forloop.counter }}</h3>
+
+                        {% for hidden_field in item_form.hidden_fields %}
+                            {{ hidden_field }}
+                        {% endfor %}
+
+                        <div class="invoice-item-grid">
+                            <div class="form-field product-field">
+                                <label for="{{ item_form.product.id_for_label }}">Produit</label>
+                                {{ item_form.product }}
+                                {% if item_form.product.errors %}
+                                    <div class="field-error">{{ item_form.product.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-field quantity-field">
+                                <label for="{{ item_form.quantity.id_for_label }}">Quantité</label>
+                                {{ item_form.quantity }}
+                                {% if item_form.quantity.errors %}
+                                    <div class="field-error">{{ item_form.quantity.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="form-field price-field">
+                                <label for="{{ item_form.unit_price.id_for_label }}">Prix unitaire</label>
+                                {{ item_form.unit_price }}
+                                {% if item_form.unit_price.errors %}
+                                    <div class="field-error">{{ item_form.unit_price.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Enregistrer la facture</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function updateUnitPrices() {
+            const productSelects = document.querySelectorAll('select[name$="-product"]');
+
+            productSelects.forEach(function(select) {
+                select.addEventListener('change', function() {
+                    const selectedOption = this.options[this.selectedIndex];
+                    const price = selectedOption.getAttribute('data-price');
+
+                    const unitPriceInput = this
+                        .closest('.invoice-item-card')
+                        .querySelector('input[name$="-unit_price"]');
+
+                    if (price && unitPriceInput) {
+                        unitPriceInput.value = price;
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', updateUnitPrices);
+    </script>
 {% endblock %}
