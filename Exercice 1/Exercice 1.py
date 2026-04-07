@@ -1,10 +1,10 @@
-largerMax = 100
+MAX_WIDTH = 100
 
 def add_space(bloc):
     for tup in bloc.values():
-        lenStr = min(len(tup[0]), largerMax - 2)
+        lenStr = min(len(tup[0]), MAX_WIDTH - 2)
         if tup[1] == True:
-            print(f"|{' ' * (largerMax - lenStr - 2)}{tup[0][:lenStr].lower()}|")
+            print(f"|{' ' * (MAX_WIDTH - lenStr - 2)}{tup[0][:lenStr].lower()}|")
 
 def main():
     bloc1 = {1: ("Le code propre facilite la maintenance", True)}
@@ -19,12 +19,12 @@ def main():
             bloc3]
 
     for element in dico:
-        print("-" * largerMax)
+        print("-" * MAX_WIDTH)
         add_space(element)
-        print("-" * largerMax)
+        print("-" * MAX_WIDTH)
 
 if __name__ == "__main__":
-    if largerMax < 2:
-        print("Error: Your largerMax has to be more than 2")
+    if MAX_WIDTH < 2:
+        print("Error: Your MAX_WIDTH has to be more than 2")
         exit()
     main()

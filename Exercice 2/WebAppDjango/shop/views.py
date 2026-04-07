@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-
 from .models import Product, Invoice
-from .forms import ProductForm, InvoiceForm, InvoiceItemFormSet
+from .forms import InvoiceForm, InvoiceItemFormSet
+from .forms import ProductForm, InvoiceForm
 
 
 class ProductListView(ListView):
@@ -47,8 +47,6 @@ class InvoiceListView(ListView):
     ordering = ['-id']
 
 
-from django.shortcuts import render, redirect
-from .forms import InvoiceForm, InvoiceItemFormSet
 
 
 def invoice_create(request):
