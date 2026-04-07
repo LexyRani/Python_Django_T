@@ -17,28 +17,23 @@
                 <span></span>
             </button>
         </div>
-
         <div class="layout">
             <nav class="sidebar">
                 <a href="{% url 'product-list' %}" class="logo desktop-logo">Shop</a>
-
                 {% with request.resolver_match.url_name as url_name %}
                 <div class="sidebar-links">
                     <a href="{% url 'product-list' %}"
                        class="{% if url_name == 'product-list' %}active{% endif %}">
                         Produits
                     </a>
-
                     <a href="{% url 'product-create' %}"
                        class="{% if url_name == 'product-create' %}active{% endif %}">
                         Ajouter un produit
                     </a>
-
                     <a href="{% url 'invoice-list' %}"
                        class="{% if url_name == 'invoice-list' or url_name == 'invoice-detail' %}active{% endif %}">
                         Factures
                     </a>
-
                     <a href="{% url 'invoice-create' %}"
                        class="{% if url_name == 'invoice-create' %}active{% endif %}">
                         Créer une facture
@@ -46,13 +41,11 @@
                 </div>
                 {% endwith %}
             </nav>
-
             <main class="main-content">
                 {% block content %}
                 {% endblock %}
             </main>
         </div>
-
         <script>
             function toggleMenu() {
                 document.body.classList.toggle("sidebar-open");

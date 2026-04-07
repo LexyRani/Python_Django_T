@@ -43,7 +43,7 @@ class InvoiceListView(ListView):
     model = Invoice
     template_name = 'shop/invoice_list.html'
     context_object_name = 'invoices'
-    paginate_by = 5
+    paginate_by = 10
     ordering = ['-id']
 
 
