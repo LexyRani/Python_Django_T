@@ -48,6 +48,6 @@ InvoiceItemFormSet = inlineformset_factory(
     Invoice,
     InvoiceItem,
     form=InvoiceItemForm,
-    extra=3,
+    extra=5,
     can_delete=False
 )
