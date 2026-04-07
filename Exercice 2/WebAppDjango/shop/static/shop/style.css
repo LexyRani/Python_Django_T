@@ -206,6 +206,71 @@ p {
     line-height: 1.6;
 }
 
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.invoice-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.invoice-table tr:hover {
+  background-color: #fafafa;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination a {
+  margin-right: 10px;
+}
+
+.invoice-detail-header {
+    margin-bottom: 24px;
+}
+
+.invoice-summary {
+    width: 320px;
+    margin-top: 24px;
+    margin-left: auto;
+    padding: 20px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    color: #475569;
+}
+
+.summary-row + .summary-row {
+    border-top: 1px solid #e2e8f0;
+}
+
+.summary-total {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.text-right {
+    text-align: right;
+}
 /* Mobile */
 @media (max-width: 768px) {
     .layout {

@@ -1,13 +1,12 @@
 {% extends "shop/base.html" %}
 
 {% block content %}
-  <h1>Détail de la facture #{{ invoice.id }}</h1>
+  <div class="invoice-detail-header">
+    <h1>Facture #{{ invoice.id }}</h1>
+    <p>Date : {{ invoice.created_at }}</p>
+  </div>
 
-  <p>Date : {{ invoice.created_at }}</p>
-
-  <h2>Produits</h2>
-
-  <table>
+  <table class="invoice-table">
       <thead>
           <tr>
               <th>Produit</th>
@@ -21,8 +20,8 @@
               <tr>
                   <td>{{ item.product.name }}</td>
                   <td>{{ item.quantity }}</td>
-                  <td>{{ item.unit_price }}</td>
-                  <td>{{ item.line_total }}</td>
+                  <td class="text-right">{{ item.unit_price }}</td>
+                  <td class="text-right">{{ item.line_total }}</td>
               </tr>
           {% empty %}
               <tr>
@@ -32,6 +31,14 @@
       </tbody>
   </table>
 
-  <p><strong>Total de produits :</strong> {{ invoice.total_products }}</p>
-  <p><strong>Total à payer :</strong> {{ invoice.total_price }}</p>
+<div class="invoice-summary">
+    <div class="summary-row">
+        <span>Total de produits</span>
+        <span>{{ invoice.total_products }}</span>
+    </div>
+    <div class="summary-row summary-total">
+        <span>Total à payer</span>
+        <span>{{ invoice.total_price }}</span>
+    </div>
+</div>
 {% endblock %}
