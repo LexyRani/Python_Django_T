@@ -534,3 +534,40 @@ p {
         max-width: 100%;
     }
 }
+
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.invoice-table-contained {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.invoice-table-contained th,
+.invoice-table-contained td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.invoice-table-contained th {
+    background-color: #f8fafc;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.invoice-table-contained tr:hover {
+    background-color: #f8fbff;
+}
+
+.invoice-table-contained tr:last-child td {
+    border-bottom: none;
+}

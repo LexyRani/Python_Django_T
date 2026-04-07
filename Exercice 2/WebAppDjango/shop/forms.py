@@ -15,10 +15,14 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ['name', 'price', 'expiration_date']
+        labels = {
+            'name': 'Nom',
+            'price': 'Prix',
+            'expiration_date': "Date d'expiration",
+        }
         widgets = {
             'expiration_date': forms.DateInput(attrs={'type': 'date'}),
         }
-
 
 class InvoiceForm(forms.ModelForm):
     class Meta:
