@@ -41,7 +41,7 @@ Certaines phrases présentes dans les données sont volontairement exclues de l�
 Depuis la racine du projet :
 
 ```bash
-cd exercice_1
+cd Exercice/ 1
 python Exercice\ 1.py
 ```
 
