@@ -1,13 +1,13 @@
 {% extends "shop/base.html" %}
 {% block content %}
-        {% if product.pk %}
-        <h1>Edit product</h1>
-        {% else %}
-        <h1>Create product</h1>
-        {% endif %}
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Save</button>
-        </form>
+    {% if product.pk %}
+    <h1>Edit product</h1>
+    {% else %}
+    <h1>Create product</h1>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
 {% endblock %}

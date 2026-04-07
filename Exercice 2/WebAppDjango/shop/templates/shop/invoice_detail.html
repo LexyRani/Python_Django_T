@@ -1,0 +1,37 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+  <h1>Détail de la facture #{{ invoice.id }}</h1>
+
+  <p>Date : {{ invoice.created_at }}</p>
+
+  <h2>Produits</h2>
+
+  <table>
+      <thead>
+          <tr>
+              <th>Produit</th>
+              <th>Quantité</th>
+              <th>Prix unitaire</th>
+              <th>Total ligne</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for item in invoice.invoiceitem_set.all %}
+              <tr>
+                  <td>{{ item.product.name }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.unit_price }}</td>
+                  <td>{{ item.line_total }}</td>
+              </tr>
+          {% empty %}
+              <tr>
+                  <td colspan="4">Aucun produit dans cette facture.</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+
+  <p><strong>Total de produits :</strong> {{ invoice.total_products }}</p>
+  <p><strong>Total à payer :</strong> {{ invoice.total_price }}</p>
+{% endblock %}

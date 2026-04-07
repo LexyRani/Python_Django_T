@@ -1,9 +1,9 @@
 {% extends "shop/base.html" %}
 {% block content %}
-        <h1>Supprimer le produit</h1>
-        <form method="post">
-            {% csrf_token %}
-            <p>Etes vous sûr de vouloir supprimer le produit: {{ product.name }}"?</p>
-            <button type="submit">Confirm</button>
-        </form>
+    <h1>Supprimer le produit</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Etes vous sûr de vouloir supprimer le produit: {{ product.name }}"?</p>
+        <button type="submit">Confirm</button>
+    </form>
 {% endblock %}

@@ -1,0 +1,19 @@
+{% extends "shop/base.html" %}
+{% block content %}
+    <h1>Créer une facture</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        {{ formset.management_form }}
+
+        {% for item_form in formset %}
+            <div class="card">
+                {{ item_form.as_p }}
+            </div>
+            {% endfor %}
+            <button type="submit">Enregistrer la facture</button>
+    </form>        
+{% endblock %}

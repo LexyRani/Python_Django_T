@@ -1,8 +1,8 @@
 {% extends "shop/base.html" %}
 {% block content %}
-        <h1>Détail du produit</h1>
-            <div> {{product.name}} - {{product.price}} - {{product.expiration_date}}                        
-                <div><a href="{% url 'product-update' product.pk %}"> Mettre à jour </a> -
-                <a href="{% url 'product-delete' product.pk %}">Supprimer</a></div>
-            </div>
+    <h1>Détail du produit</h1>
+        <div> {{product.name}} - {{product.price}} - {{product.expiration_date}}                        
+            <div><a href="{% url 'product-update' product.pk %}"> Mettre à jour </a> -
+            <a href="{% url 'product-delete' product.pk %}">Supprimer</a></div>
+        </div>
 {% endblock %}
