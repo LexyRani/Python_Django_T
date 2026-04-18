@@ -1,8 +1,9 @@
 # Gestion de produits et facturation (Python / Django)
 
 Ici vous trouverez:
-- un script Python de manipulation de texte en console (exercice 1) ;
-- une application web Django de gestion de produits et de facturation (exercice 2).
+- un script Python de manipulation de texte en console (exercice 1)
+- une application web Django de gestion de produits et de facturation (exercice 2)
+- un script Python d'affichage d'un menu de restaurant (exercice 3)
 
 L’objectif est de montrer à la fois de la logique Python côté console et une application web structurée avec Django.
 
@@ -10,10 +11,11 @@ L’objectif est de montrer à la fois de la logique Python côté console et un
 
 ## Sommaire
 
-- [Exercice 1 — Blocs de texte en console](#exercice-1--blocs-de-texte-en-console)
+- [Exercice 1 - Blocs de texte en console](#exercice-1--blocs-de-texte-en-console)
 - [Exercice 2 — Application Django de gestion de produits et factures](#exercice-2--application-django-de-gestion-de-produits-et-factures)
   - [Installation](#installation)
-
+- [Exercice 3 — Menu de restaurant](#exercice-3--menu-de-restaurant)
+  
 ---
 
 ## Exercice 1 – Blocs de texte en console
@@ -78,9 +80,8 @@ Application web Django qui permet de :
   - nombre total de produits
   - total à payer
 
----
 
-## Installation
+### Installation
 
 ### Prérequis
 
@@ -129,3 +130,24 @@ python manage.py migrate
 
   Depuis un navigateur web, accéder à l’application :
      - `http://127.0.0.1:8000/`
+
+## Exercice 3 – Menu de restaurant
+
+### Description
+
+Un script Python qui affiche dans la console un menu de restaurant par catégories, avec :
+
+Les données sont stockées dans un dictionnaire unique structuré, ce qui permet :
+- d'ajouter ou supprimer une catégorie ;
+- d'ajouter ou supprimer un plat ;
+- de modifier facilement le prix d'un plat ;
+- de changer la disponibilité d'un plat.
+
+### Lancer le script
+
+Depuis la racine du projet :
+
+```bash
+cd Exercice\ 3
+python Exercice\ 3.py
+```
