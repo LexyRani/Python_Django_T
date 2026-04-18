@@ -100,7 +100,7 @@ cd Python_Django_T
 2. Créer et activer un environnement virtuel :
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate      # macOS / Linux
 # ou
 venv\Scripts\activate         # Windows
