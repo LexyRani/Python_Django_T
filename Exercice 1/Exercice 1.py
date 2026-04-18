@@ -1,10 +1,13 @@
 MAX_WIDTH = 100
 
-def add_space(bloc):
-    for tup in bloc.values():
-        lenStr = min(len(tup[0]), MAX_WIDTH - 2)
-        if tup[1] == True:
-            print(f"|{' ' * (MAX_WIDTH - lenStr - 2)}{tup[0][:lenStr].lower()}|")
+def format_ligne(texte):
+    longueur = min(len(texte), MAX_WIDTH - 2)
+    return f"|{' ' * (MAX_WIDTH - longueur - 2)}{texte[:longueur].lower()}|"
+
+def display_bloc(bloc):
+    for texte, visible in bloc.values():
+        if visible:
+            print(format_ligne(texte))
 
 def main():
     dico = {
@@ -19,7 +22,7 @@ def main():
 
     for element in dico.values():
         print("-" * MAX_WIDTH)
-        add_space(element)
+        display_bloc(element)
         print("-" * MAX_WIDTH)
 
 if __name__ == "__main__":
